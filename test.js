@@ -23,6 +23,7 @@ app.get('/all', async function(req, res){
     json = []
     count = 0
     for (let i = 1; i < 96; i++) {
+        // show the sequence that get from other link
         console.log(i)
         let url = await rp('http://interview.funplay8.com/index.php?page=' + i).then(function(html) {
           for (let imageNo = 0; imageNo < cher('div > div > img', html).length; imageNo++) {
