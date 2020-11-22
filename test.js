@@ -24,6 +24,7 @@ app.get('/all', async function(req, res){
     count = 0
     for (let i = 1; i < 96; i++) {
         // show the sequence that get from other link
+        // if the sequence display not correctly, rerun again
         console.log(i)
         let url = await rp('http://interview.funplay8.com/index.php?page=' + i).then(function(html) {
           for (let imageNo = 0; imageNo < cher('div > div > img', html).length; imageNo++) {
@@ -158,7 +159,7 @@ app.post('/create', function(req, res){
 
   array = []
 
-  console.log(json.length)
+//   console.log(json.length)
   for (let i = 0; i < json.length; i++) {
     array[i] = json[i]
   }
@@ -185,8 +186,8 @@ app.post('/create', function(req, res){
     requestCount: 0 
   }
 
-  console.log(array.length)
-  console.log(input.length)
+//   console.log(array.length)
+//   console.log(input.length)
   res.end(JSON.stringify(input))
 
 })
